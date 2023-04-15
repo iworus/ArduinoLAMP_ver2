@@ -19,14 +19,22 @@
             <Border Height="50" Background="#6200EE">
                 <StackPanel VerticalAlignment="Center" Margin="10 0 0 0">
                     <Label Content="ArduinoLAMP" Foreground="White" FontFamily="Roboto" FontSize="24" HorizontalAlignment="Left" Margin="0,1,0,0"/>
-                    <Label Content="PORT:" Margin="449,-33,0,0" Foreground="#DDFFFFFF" Width="44" Height="21" />
-                    <ComboBox Width="100" Foreground="White" OpacityMask="White" BorderBrush="#89FFFFFF" VerticalAlignment="Center" Margin="600,-35,0,0" />
-                </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="5" Direction="276" Opacity="0.2" ShadowDepth="3">
+                    <materialDesign:Card Width="184" Height="30" Margin="283,-35,0,0">
+                        <StackPanel>
+                            <Label Content="PORT:"  Width="41" Height="21" Margin="-143,4,0,0" FontFamily="Roboto" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" >
+                            </Label>
+                            <ComboBox x:Name="port_lst" Width="130"  VerticalAlignment="Center" Margin="41,-21,0,0" ></ComboBox>
+                        </StackPanel>
+                    </materialDesign:Card>
 
-                    </DropShadowEffect>
-                </Border.Effect>
+                    <materialDesign:Card Width="137" Height="30" Margin="621,-35,0,0">
+                        <StackPanel>
+                            <Label Content="Digital pin:"   Height="23" Margin="-50,4,0,0" FontFamily="Roboto" RenderTransformOrigin="0.5,0.5" Width="78" FontWeight="Bold" >
+                            </Label>
+                            <ComboBox x:Name="dig_pin" Width="55" Margin="65,-25,0,0" />
+                        </StackPanel>
+                    </materialDesign:Card>
+                </StackPanel>
             </Border>
             <TabControl TabStripPlacement="Left" Background="White">
 
@@ -38,34 +46,57 @@
                                 <TabControl TabStripPlacement="Left">
                                     <TabItem Header="Temp. entry">
                                         <StackPanel>
-                                            <Border Width="230" Height="60" Margin="-226,0,0,0">
-                                                <StackPanel Margin="5">
-                                                    <Label Content="Enter your temperature:" FontFamily="Roboto Medium" FontSize="14"></Label>
+                                            <Border Width="260" Height="140" Margin="-210,5,0,0">
+                                                <StackPanel Margin="5,5,5,5">
+                                                    <Label Content="Enter your temperature (max. 9999K):" FontFamily="Roboto Medium" FontSize="14"></Label>
                                                     <TextBox></TextBox>
+                                                    <Label Content="Brigtness:" Margin="0 10 0 0" FontSize="14" FontFamily="Roboto Medium"></Label>
+                                                    <Slider Width="220" Margin="0 5 0 0" Value="220" Maximum="255" TickPlacement="BottomRight" TickFrequency="15"/>
+                                                    <Label Content="0%" FontWeight="Bold" Margin="16.2,-3,0,0"></Label>
+                                                    <Label Content="100%" FontWeight="Bold" Margin="211,-22,0,0"></Label>
                                                 </StackPanel>
                                             </Border>
+
+                                            <GridSplitter Width="2" Height="130" Margin="0,-143,202,3">
+                                            </GridSplitter>
+
+                                            <Label Content="Status report:" Width="100" Margin="196,-134,0,109" FontSize="14" FontFamily="Roboto Medium"></Label>
+                                            <Label Content="Voltage:" Width="100" Margin="195,-112,0,87" FontFamily="Roboto"/>
+                                            <Label Content="Current Amp:" Width="100" Margin="196,-89,0,64" FontFamily="Roboto"/>
+                                            <Label Content="IS SEND?:" Width="100" Margin="196,-66,0,43" FontFamily="Roboto"/>
+
                                             <Button Width="110" Content="Send to port" Margin="362,0,0,0"></Button>
                                         </StackPanel>
                                     </TabItem>
                                     <TabItem Header="Table value">
                                         <StackPanel>
-                                            <Border Width="230" Height="60" Margin="-226,0,0,0">
+                                            <Border Width="260" Height="140" Margin="-210,5,0,0">
                                                 <StackPanel Margin="5">
                                                     <Label Content="Choose temperature:" FontFamily="Roboto Medium" FontSize="14"></Label>
                                                     <ComboBox>
-                                                        <ComboBoxItem Content="1000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="2000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="3000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="4000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="5000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="6000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="7000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="8000"></ComboBoxItem>
-                                                        <ComboBoxItem Content="9000"></ComboBoxItem>
+                                                        <ComboBoxItem Content="1000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="2000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="3000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="4000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="5000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="6000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="7000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="8000K"></ComboBoxItem>
+                                                        <ComboBoxItem Content="9000K"></ComboBoxItem>
                                                     </ComboBox>
-
+                                                    <Label Content="Brigtness:" Margin="0 10 0 0" FontSize="14" FontFamily="Roboto Medium"></Label>
+                                                    <Slider Width="220" Margin="0 5 0 0" Value="220" Maximum="255" TickPlacement="BottomRight" TickFrequency="15"/>
+                                                    <Label Content="0%" FontWeight="Bold" Margin="16.2,-3,0,0"></Label>
+                                                    <Label Content="100%" FontWeight="Bold" Margin="211,-22,0,0"></Label>
                                                 </StackPanel>
                                             </Border>
+                                            <GridSplitter Width="2" Height="130" Margin="0,-143,202,3">
+                                            </GridSplitter>
+                                            <Label Content="Status report:" Width="100" Margin="196,-134,0,109" FontSize="14" FontFamily="Roboto Medium"></Label>
+                                            <Label Content="Voltage:" Width="100" Margin="195,-112,0,87" FontFamily="Roboto"/>
+                                            <Label Content="Current Amp:" Width="100" Margin="196,-89,0,64" FontFamily="Roboto"/>
+                                            <Label Content="IS SEND?:" Width="100" Margin="196,-66,0,43" FontFamily="Roboto"/>
+
                                             <Button Width="110" Content="Send to port" Margin="362,0,0,0"></Button>
                                         </StackPanel>
                                     </TabItem>

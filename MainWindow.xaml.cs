@@ -12,17 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO.Ports;
+using System.IO;
 
 namespace ArduinoLAMP2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+        SerialPort serialPort = new SerialPort();
+        string[] portsAll = SerialPort.GetPortNames();
         public MainWindow()
         {
             InitializeComponent();
+            port_lst.ItemsSource = portsAll;   
         }
     }
 }
